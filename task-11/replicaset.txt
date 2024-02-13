@@ -1,0 +1,5 @@
+NAME                     DESIRED   CURRENT   READY   AGE     CONTAINERS   IMAGES                               SELECTOR
+final-exam-7485bd966f    1         1         1       26m     flask-app    nvrbckdown/flask-app:final-exam      app=final-exam,pod-template-hash=7485bd966f
+fl-app-d498868d7         2         2         2       59m     flask-app    nvrbckdown/flask-app:last-practice   app=fl-app,pod-template-hash=d498868d7
+front-app-6fdbc666df     1         1         1       4m15s   something    nvrbckdown/something                 app=front-app,pod-template-hash=6fdbc666df
+nginx-deploy-5bfb5cbd4   1         1         1       49m     nginx        nginx                                app=nginx-deploy,pod-template-hash=5bfb5cbd4

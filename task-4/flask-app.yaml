@@ -1,0 +1,33 @@
+# prettier-ignore
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: fl-app
+  name: fl-app
+  namespace: abdulaziz
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fl-app
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: fl-app
+    spec:
+      containers:
+      - image: nvrbckdown/flask-app:last-practice
+        name: flask-app
+        resources:
+          limits: 
+            cpu: 150m
+            memory: 128Mi
+          requests:
+            cpu: 75m
+            memory: 64Mi
+
+status: {}

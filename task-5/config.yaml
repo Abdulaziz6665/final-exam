@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  AUTHOR: abdulaziz
+  EXAM-TYPE: "Final exam"
+kind: ConfigMap
+metadata:
+  name: config-info
+  namespace: abdulaziz

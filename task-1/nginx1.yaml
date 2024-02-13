@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: nginx1
+    last: final
+    author: abdulaziz
+  name: nginx1
+  namespace: abdulaziz
+spec:
+  containers:
+    - image: nginx
+      name: nginx1
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always

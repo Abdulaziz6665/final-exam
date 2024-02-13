@@ -1,0 +1,18 @@
+# prettier-ignore
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: final-exam
+  name: final-exam
+  namespace: abdulaziz
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: final-exam
+status:
+  loadBalancer: {}

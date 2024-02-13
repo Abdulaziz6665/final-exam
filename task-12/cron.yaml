@@ -1,0 +1,32 @@
+# prettier-ignore
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  creationTimestamp: null
+  name: node-printer
+  namespace: abdulaziz
+spec:
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+      name: node-printer
+    spec:
+      parallelism: 5
+      completions: 10
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+          - image: nginx
+            name: node-printer
+            command: ["echo $NODE_NAME"]
+            env:
+              - name: NODE_NAME
+                valueFrom:
+                  fieldRef:
+                    fieldPath: spec.nodeName
+            resources: {}
+          restartPolicy: OnFailure
+  schedule: '*/2 * * * *'
+status: {}

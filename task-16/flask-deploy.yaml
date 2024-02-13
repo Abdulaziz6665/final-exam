@@ -1,0 +1,33 @@
+# prettier-ignore
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: final-exam-host
+  name: final-exam-host
+  namespace: abdulaziz
+spec:
+  os: { name: linux }
+  nodeSelector:
+    kubernetes.io/os: linux
+  replicas: 1
+  selector:
+    matchLabels:
+      app: final-exam-host
+  template:
+    metadata:
+      labels:
+        app: final-exam-host
+    spec:
+      containers:
+      - image: nvrbckdown/flask-app:final-exam
+        name: flask-app
+        volumeMounts:
+        - mountPath: /mnt
+          name: volume-mount
+          readOnly: true
+      volumes:
+        - name: volume-mount
+          hostPath:
+            path: /mnt
+            type: DirectoryOrCreate

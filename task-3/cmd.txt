@@ -1,0 +1,5 @@
+kubectl run busybox --image busybox -n abdulaziz -- sleep 3200
+
+kubectl exec -it busybox -n abdulaziz -- echo "The BEST DevOps COURSE"
+
+The BEST DevOps COURSE

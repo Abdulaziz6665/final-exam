@@ -1,0 +1,36 @@
+# prettier-ignore
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: final-exam
+  name: final-exam
+  namespace: abdulaziz
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: final-exam
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: final-exam
+    spec:
+      containers:
+      - image: nvrbckdown/flask-app:final-exam
+        name: flask-app
+        env:
+          - name: AUTHOR
+            valueFrom:
+              configMapKeyRef:
+                name: config-info
+                key: AUTHOR
+          - name: POD
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
+          - name: NODE
+            valueFrom:
+              fieldRef:
+                fieldPath: spec.nodeName
